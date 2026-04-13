@@ -39,7 +39,7 @@ python gbfra.py --id 8103893
 ### Seofon (Japanese files)  
   
 ```console
-python gbfra.py -i 6205773 --japanese
+python gbfra.py --id 6205773 --japanese
 ```  
 <img src="./examples/6205773.png">  
   
