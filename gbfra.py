@@ -734,14 +734,20 @@ async def run() -> None:
         required=False, 
         help="The path of the output image (Required)."
     )
+    parser.add_argument(
+        '-jp', '--japanese',
+        action='store_true',
+        help="Enable the use of Japanese files (Optional)."
+    )
     args : argparse.Namespace = parser.parse_args()
     eid : str = args.id
     var : str = ("_" + args.variation) if args.variation is not None else ""
     out : str = sanitize_output(args.output) if args.output is not None else f"{eid}{var}.png"
+    folder : str = "assets" if args.japanese else "assets_en"
     async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=20)) as client:
         try:
-            javascript : str = (await get(client, f"assets_en/js/cjs/raid_appear_{eid}{var}.js")).decode('utf-8')
-            spritesheet : IMG = IMG(await get(client, f"assets_en/img/sp/cjs/raid_appear_{eid}{var}.png"))
+            javascript : str = (await get(client, f"{folder}/js/cjs/raid_appear_{eid}{var}.js")).decode('utf-8')
+            spritesheet : IMG = IMG(await get(client, f"{folder}/img/sp/cjs/raid_appear_{eid}{var}.png"))
             parser = CreateJSTimelineParser(f"raid_appear_{eid}{var}", javascript, spritesheet)
             render : IMG = parser.render()
             render.save(out)

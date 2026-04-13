@@ -9,13 +9,14 @@ Standalone Python script reusing code from [Mizatube](https://github.com/MizaGBF
 # Usage  
   
 ```console
-python gbfra.py --id ENEMY_ID --variation VARIATION_SUFFIX --output FILE_NAME.png
+python gbfra.py --id ENEMY_ID --variation VARIATION_SUFFIX --output FILE_NAME.png --japanese
 ```  
   
 `ENEMY_ID` must be a 7-digit number matching an enemy with a "Raid Appear" animation. You can look for them on [GBFAL](https://mizagbf.github.io/GBFAL/), such enemies have a little "Vs" icon.  
 `VARIATION` is the extra string present on alternative animations.  
 The `output` will always be a `PNG` regardless of the extension that you might input or not.  
-`--variation` and `--output` are optional.  
+The `--japanese` will use the japanese files instead of english ones.  
+`--variation`, `--output` and `--japanese` are optional.  
 Use `-h/--help` for the help and the shorthands.  
 Look below for examples.  
   
@@ -34,6 +35,13 @@ python gbfra.py --id 7300213
 python gbfra.py --id 8103893
 ```  
 <img src="./examples/8103893.png">  
+  
+### Seofon (Japanese files)  
+  
+```console
+python gbfra.py -i 6205773 --japanese
+```  
+<img src="./examples/6205773.png">  
   
 ### Vyrn? (4th variation)  
   
