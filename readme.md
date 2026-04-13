@@ -49,7 +49,7 @@ python gbfra.py --id 7300843 --variation shade
 ```  
 <img src="./examples/7300843_shade.png">  
   
-# Know issues  
+# Known issues  
   
 Violet Knight (Otherworld Corrupted) doesn't work properly:  
 <img src="./examples/6204833.png">  
